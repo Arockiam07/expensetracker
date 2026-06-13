@@ -21,6 +21,8 @@ import {
   X,
   Calendar,
   Trash2,
+  Zap,
+  MoreHorizontal,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -43,6 +45,8 @@ const categoryIcons = {
   Income: Wallet,
   Lent: HandCoins,
   Borrowed: HandCoins,
+  Recharge: Zap,
+  Other: MoreHorizontal,
 };
 
 function TransactionsPage() {
@@ -272,8 +276,10 @@ function TransactionsPage() {
                 <option value="Shopping">Shopping</option>
                 <option value="Housing">Housing</option>
                 <option value="Travel">Travel</option>
+                <option value="Recharge">Recharge</option>
                 <option value="Income">Income</option>
                 <option value="Lent">Lent / Loans</option>
+                <option value="Other">Other</option>
               </select>
 
               {/* Date Filter */}
@@ -444,8 +450,10 @@ function TransactionsPage() {
                     <option value="Shopping">Shopping</option>
                     <option value="Housing">Housing</option>
                     <option value="Travel">Travel</option>
+                    <option value="Recharge">Recharge</option>
                     <option value="Income">Income</option>
                     <option value="Lent">Lent / Loans</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 

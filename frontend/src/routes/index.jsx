@@ -29,6 +29,7 @@ import {
   MoreHorizontal,
   Search,
   X,
+  Zap,
 } from "lucide-react";
 import {
   AreaChart,
@@ -73,6 +74,8 @@ const categoryIcons = {
   Income: Wallet,
   Lent: HandCoins,
   Borrowed: HandCoins,
+  Recharge: Zap,
+  Other: MoreHorizontal,
 };
 
 function Index() {
@@ -955,8 +958,10 @@ function Index() {
                     <option value="Shopping">Shopping</option>
                     <option value="Housing">Housing</option>
                     <option value="Travel">Travel</option>
+                    <option value="Recharge">Recharge</option>
                     <option value="Income">Income</option>
                     <option value="Lent">Lent / Loans</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 

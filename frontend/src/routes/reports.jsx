@@ -19,6 +19,8 @@ import {
   Percent,
   RefreshCw,
   Download,
+  Zap,
+  MoreHorizontal,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -41,6 +43,8 @@ const categoryIcons = {
   Income: Wallet,
   Lent: HandCoins,
   Borrowed: HandCoins,
+  Recharge: Zap,
+  Other: MoreHorizontal,
 };
 
 const monthNames = [

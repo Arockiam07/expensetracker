@@ -199,10 +199,8 @@ function RootComponent() {
   }, [currentPath]);
 
   const toggleTheme = () => {
-    import("../lib/dataStore").then(({ store }) => {
-      const current = store.getSettings();
-      store.setSettings({ ...current, theme: isDark ? "light" : "dark" });
-    });
+    const current = store.getSettings();
+    store.setSettings({ ...current, theme: isDark ? "light" : "dark" });
   };
 
   const handleLogout = () => {

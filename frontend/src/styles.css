@@ -237,16 +237,18 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-.btn-glass-circular:hover {
-  transform: scale(1.08) translateY(-1px);
-  background: rgba(255, 255, 255, 0.5);
-  border-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
-}
+@media (hover: hover) {
+  .btn-glass-circular:hover {
+    transform: scale(1.08) translateY(-1px);
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  }
 
-.dark .btn-glass-circular:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  .dark .btn-glass-circular:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
 }
 
 .btn-glass-circular:active {
@@ -267,9 +269,11 @@
   pointer-events: none;
 }
 
-.btn-glass-circular:hover::after {
-  left: 150%;
-  transition: left 0.75s ease-in-out;
+@media (hover: hover) {
+  .btn-glass-circular:hover::after {
+    left: 150%;
+    transition: left 0.75s ease-in-out;
+  }
 }
 
 /* Premium Glassmorphic Buttons */
@@ -292,10 +296,12 @@
 }
 
 /* Base states & animations */
-.btn-premium-primary:hover,
-.btn-premium-secondary:hover,
-.btn-premium-danger:hover {
-  transform: scale(1.03) translateY(-1px);
+@media (hover: hover) {
+  .btn-premium-primary:hover,
+  .btn-premium-secondary:hover,
+  .btn-premium-danger:hover {
+    transform: scale(1.03) translateY(-1px);
+  }
 }
 
 .btn-premium-primary:active,
@@ -313,11 +319,13 @@
     0 4px 15px -3px rgba(16, 185, 129, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
-.btn-premium-primary:hover {
-  box-shadow:
-    0 8px 20px -3px rgba(16, 185, 129, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  filter: brightness(1.05);
+@media (hover: hover) {
+  .btn-premium-primary:hover {
+    box-shadow:
+      0 8px 20px -3px rgba(16, 185, 129, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    filter: brightness(1.05);
+  }
 }
 
 /* Secondary style (glass outline) */
@@ -327,20 +335,18 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
-.btn-premium-secondary:hover {
-  background: rgba(255, 255, 255, 0.65);
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-}
+@media (hover: hover) {
+  .btn-premium-secondary:hover {
+    background: rgba(255, 255, 255, 0.65);
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  }
 
-.dark .btn-premium-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.08);
-}
-.dark .btn-premium-secondary:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  .dark .btn-premium-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
 }
 
 /* Danger style (red glassmorphism) */
@@ -352,11 +358,13 @@
     0 4px 15px -3px rgba(239, 68, 68, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
-.btn-premium-danger:hover {
-  box-shadow:
-    0 8px 20px -3px rgba(239, 68, 68, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  filter: brightness(1.05);
+@media (hover: hover) {
+  .btn-premium-danger:hover {
+    box-shadow:
+      0 8px 20px -3px rgba(239, 68, 68, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    filter: brightness(1.05);
+  }
 }
 
 /* Specular Sweep/Shine Swipe Animation on Hover */
@@ -375,11 +383,13 @@
   pointer-events: none;
 }
 
-.btn-premium-primary:hover::after,
-.btn-premium-secondary:hover::after,
-.btn-premium-danger:hover::after {
-  left: 150%;
-  transition: left 0.75s ease-in-out;
+@media (hover: hover) {
+  .btn-premium-primary:hover::after,
+  .btn-premium-secondary:hover::after,
+  .btn-premium-danger:hover::after {
+    left: 150%;
+    transition: left 0.75s ease-in-out;
+  }
 }
 
 /* Glassmorphism Selection Cards */
@@ -402,8 +412,10 @@
     box-shadow 0.3s ease;
 }
 
-.btn-glass-card:hover {
-  transform: scale(1.02) translateY(-2px);
+@media (hover: hover) {
+  .btn-glass-card:hover {
+    transform: scale(1.02) translateY(-2px);
+  }
 }
 
 .btn-glass-card:active {
@@ -424,9 +436,11 @@
   pointer-events: none;
 }
 
-.btn-glass-card:hover::after {
-  left: 150%;
-  transition: left 0.8s ease-in-out;
+@media (hover: hover) {
+  .btn-glass-card:hover::after {
+    left: 150%;
+    transition: left 0.8s ease-in-out;
+  }
 }
 
 /* Glassmorphism Select Dropdowns */
@@ -447,15 +461,17 @@
   border-color: rgba(255, 255, 255, 0.08);
 }
 
-.select-glass:hover {
-  transform: scale(1.01) translateY(-0.5px);
-  background: rgba(255, 255, 255, 0.65);
-  border-color: rgba(0, 0, 0, 0.12);
-}
+@media (hover: hover) {
+  .select-glass:hover {
+    transform: scale(1.01) translateY(-0.5px);
+    background: rgba(255, 255, 255, 0.65);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
 
-.dark .select-glass:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.16);
+  .dark .select-glass:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.16);
+  }
 }
 
 .select-glass:focus {
