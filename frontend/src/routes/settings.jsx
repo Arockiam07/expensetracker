@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   AlertTriangle,
   EyeOff,
+  Eye,
   RefreshCw,
   Key,
   ArrowRight,
@@ -42,6 +43,8 @@ function SettingsPage() {
   const [email, setEmail] = useState(user?.email || "");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -57,6 +60,8 @@ function SettingsPage() {
     setEmail(user?.email || "");
     setPassword("");
     setConfirmPassword("");
+    setShowPassword(false);
+    setShowConfirmPassword(false);
     setIsEditing(false);
   };
 
@@ -86,6 +91,8 @@ function SettingsPage() {
       toast.success("Profile updated successfully", { id: toastId });
       setPassword("");
       setConfirmPassword("");
+      setShowPassword(false);
+      setShowConfirmPassword(false);
       setIsEditing(false);
     } catch (err) {
       toast.error(err.message || "Failed to update profile", { id: toastId });
@@ -190,15 +197,32 @@ function SettingsPage() {
                 <label className="text-xs font-semibold text-muted-foreground flex items-center gap-1.5">
                   <KeyRound className="h-3.5 w-3.5" /> New Password (Optional)
                 </label>
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder={isEditing ? "••••••••" : "Not Editable"}
-                  disabled={!isEditing || isSubmitting}
-                  className="w-full rounded-xl border border-white/20 dark:border-white/10 bg-white/10 dark:bg-black/20 px-3.5 py-2 text-sm text-foreground focus:outline-none focus:border-primary/50 focus:bg-white/20 dark:focus:bg-black/30 transition-all placeholder:text-muted-foreground/30 disabled:opacity-60 disabled:cursor-not-allowed"
-                  minLength={6}
-                />
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder={isEditing ? "••••••••" : "Not Editable"}
+                    disabled={!isEditing || isSubmitting}
+                    className="w-full rounded-xl border border-white/20 dark:border-white/10 bg-white/10 dark:bg-black/20 pl-3.5 pr-10 py-2 text-sm text-foreground focus:outline-none focus:border-primary/50 focus:bg-white/20 dark:focus:bg-black/30 transition-all placeholder:text-muted-foreground/30 disabled:opacity-60 disabled:cursor-not-allowed"
+                    minLength={6}
+                  />
+                  {isEditing && (
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      disabled={isSubmitting}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 flex items-center justify-center text-muted-foreground/70 hover:text-foreground focus:outline-none focus:text-foreground cursor-pointer transition-colors disabled:opacity-50"
+                      aria-label={showPassword ? "Hide password" : "Show password"}
+                    >
+                      {showPassword ? (
+                        <EyeOff className="h-4 w-4" />
+                      ) : (
+                        <Eye className="h-4 w-4" />
+                      )}
+                    </button>
+                  )}
+                </div>
               </div>
 
               {/* Confirm Password */}
@@ -206,15 +230,32 @@ function SettingsPage() {
                 <label className="text-xs font-semibold text-muted-foreground flex items-center gap-1.5">
                   <KeyRound className="h-3.5 w-3.5" /> Confirm Password
                 </label>
-                <input
-                  type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  placeholder={isEditing ? "••••••••" : "Not Editable"}
-                  disabled={!isEditing || isSubmitting}
-                  className="w-full rounded-xl border border-white/20 dark:border-white/10 bg-white/10 dark:bg-black/20 px-3.5 py-2 text-sm text-foreground focus:outline-none focus:border-primary/50 focus:bg-white/20 dark:focus:bg-black/30 transition-all placeholder:text-muted-foreground/30 disabled:opacity-60 disabled:cursor-not-allowed"
-                  minLength={6}
-                />
+                <div className="relative">
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder={isEditing ? "••••••••" : "Not Editable"}
+                    disabled={!isEditing || isSubmitting}
+                    className="w-full rounded-xl border border-white/20 dark:border-white/10 bg-white/10 dark:bg-black/20 pl-3.5 pr-10 py-2 text-sm text-foreground focus:outline-none focus:border-primary/50 focus:bg-white/20 dark:focus:bg-black/30 transition-all placeholder:text-muted-foreground/30 disabled:opacity-60 disabled:cursor-not-allowed"
+                    minLength={6}
+                  />
+                  {isEditing && (
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      disabled={isSubmitting}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 flex items-center justify-center text-muted-foreground/70 hover:text-foreground focus:outline-none focus:text-foreground cursor-pointer transition-colors disabled:opacity-50"
+                      aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+                    >
+                      {showConfirmPassword ? (
+                        <EyeOff className="h-4 w-4" />
+                      ) : (
+                        <Eye className="h-4 w-4" />
+                      )}
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
 

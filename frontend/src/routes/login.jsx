@@ -3,7 +3,7 @@ import { useState } from "react";
 import { store } from "../lib/dataStore";
 import { api } from "../lib/api";
 import { toast } from "sonner";
-import { Mail, Lock, User, ArrowRight, ShieldCheck, Loader2, KeyRound } from "lucide-react";
+import { Mail, Lock, User, ArrowRight, ShieldCheck, Loader2, KeyRound, Eye, EyeOff } from "lucide-react";
 import logo from "../assets/logo.png";
 
 export const Route = createFileRoute("/login")({
@@ -29,6 +29,8 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -36,6 +38,8 @@ function LoginPage() {
     setPassword("");
     setFullName("");
     setConfirmPassword("");
+    setShowPassword(false);
+    setShowConfirmPassword(false);
   };
 
   const handleAuthSubmit = async (e) => {
@@ -230,16 +234,28 @@ function LoginPage() {
               </div>
               <div className="relative">
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
                   disabled={isLoading}
                   minLength={isSignUp ? 6 : undefined}
-                  className="w-full rounded-full border border-white/20 dark:border-white/10 bg-white/15 dark:bg-black/20 pl-10 pr-4 py-2.5 text-sm text-foreground focus:outline-none focus:border-primary/50 focus:bg-white/25 dark:focus:bg-black/35 focus:shadow-[0_0_15px_-3px_rgba(16,185,129,0.25)] transition-all placeholder:text-muted-foreground/40"
+                  className="w-full rounded-full border border-white/20 dark:border-white/10 bg-white/15 dark:bg-black/20 pl-10 pr-10 py-2.5 text-sm text-foreground focus:outline-none focus:border-primary/50 focus:bg-white/25 dark:focus:bg-black/35 focus:shadow-[0_0_15px_-3px_rgba(16,185,129,0.25)] transition-all placeholder:text-muted-foreground/40"
                 />
                 <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground/70" />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 h-5 w-5 flex items-center justify-center text-muted-foreground/70 hover:text-foreground focus:outline-none focus:text-foreground cursor-pointer transition-colors"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-4 w-4" />
+                  ) : (
+                    <Eye className="h-4 w-4" />
+                  )}
+                </button>
               </div>
             </div>
 
@@ -251,16 +267,28 @@ function LoginPage() {
                 </label>
                 <div className="relative">
                   <input
-                    type="password"
+                    type={showConfirmPassword ? "text" : "password"}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="••••••••"
                     required
                     disabled={isLoading}
                     minLength={6}
-                    className="w-full rounded-full border border-white/20 dark:border-white/10 bg-white/15 dark:bg-black/20 pl-10 pr-4 py-2.5 text-sm text-foreground focus:outline-none focus:border-primary/50 focus:bg-white/25 dark:focus:bg-black/35 focus:shadow-[0_0_15px_-3px_rgba(16,185,129,0.25)] transition-all placeholder:text-muted-foreground/40"
+                    className="w-full rounded-full border border-white/20 dark:border-white/10 bg-white/15 dark:bg-black/20 pl-10 pr-10 py-2.5 text-sm text-foreground focus:outline-none focus:border-primary/50 focus:bg-white/25 dark:focus:bg-black/35 focus:shadow-[0_0_15px_-3px_rgba(16,185,129,0.25)] transition-all placeholder:text-muted-foreground/40"
                   />
                   <KeyRound className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground/70" />
+                  <button
+                    type="button"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 h-5 w-5 flex items-center justify-center text-muted-foreground/70 hover:text-foreground focus:outline-none focus:text-foreground cursor-pointer transition-colors"
+                    aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+                  >
+                    {showConfirmPassword ? (
+                      <EyeOff className="h-4 w-4" />
+                    ) : (
+                      <Eye className="h-4 w-4" />
+                    )}
+                  </button>
                 </div>
               </div>
             )}
