@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:2525/api";
+const API_BASE = "https://expensetracker-1-st8d.onrender.com/api";
 
 const getHeaders = () => {
   const headers = {
