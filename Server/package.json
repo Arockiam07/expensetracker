@@ -4,10 +4,10 @@
   "description": "Lumen Personal Finance Tracker API Server",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
-  },
+"scripts": {
+  "build": "tsc", 
+  "start": "node dist/index.js" 
+},
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
